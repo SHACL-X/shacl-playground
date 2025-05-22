@@ -135,6 +135,7 @@ export class ShaclPlayground extends connect(store, LitElement) {
     import("@vaadin/vaadin-dialog/vaadin-dialog.js");
     import("@vaadin/vaadin-icons/vaadin-icons.js");
     import("./components/graph-editor.js");
+    import("./components/inference-box.js");
     import("zero-md");
 
     store.dispatch.playground.restoreState();
@@ -235,19 +236,22 @@ export class ShaclPlayground extends connect(store, LitElement) {
         <vaadin-split-layout id="top-split" orientation="vertical">
           <vaadin-split-layout style="height: 60%">
             <graph-editor
-              style="width: 50%"
+              style="width: 35%"
               model="shapesGraph"
               @focus="${() => this.__pageSelected(TAB.SHAPES)}"
             >
               <h2 slot="header">${LABEL.ShapesGraph}</h2>
             </graph-editor>
             <graph-editor
-              style="width: 50%"
+              style="width: 35%"
               model="dataGraph"
               @focus="${() => this.__pageSelected(TAB.DATA)}"
             >
               <h2 slot="header">${LABEL.DataGraph}</h2>
             </graph-editor>
+            <inference-box style="width: 30%">
+              <h2 slot="header">Inference</h2>
+            </inference-box>
           </vaadin-split-layout>
           <validation-report
             style="height: 40%"
